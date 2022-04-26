@@ -1,0 +1,14 @@
+{
+    "name": "diggphp/form",
+    "description": "表单生成器",
+    "type": "library",
+    "license": "GPL-3.0",
+    "autoload": {
+        "psr-4": {
+            "DiggPHP\\Form\\": "src/"
+        }
+    },
+    "require": {
+        "diggphp/template": "^1.0"
+    }
+}
