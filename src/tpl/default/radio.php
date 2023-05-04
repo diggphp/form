@@ -13,12 +13,12 @@
         </div>
         {else}
         <div class="form-check {if isset($inline) && $inline} form-check-inline{/if}">
-            {if in_array($_vo, (array)$value)}
-            <input type="radio" class="form-check-input" id="{$id}_{:md5($_vo)}" name="{$name}" value="{$_vo}" checked>
+            {if in_array($_key, (array)$value)}
+            <input type="radio" class="form-check-input" id="{$id}_{:md5($_key)}" name="{$name}" value="{$_key}" checked>
             {else}
-            <input type="radio" class="form-check-input" id="{$id}_{:md5($_vo)}" name="{$name}" value="{$_vo}">
+            <input type="radio" class="form-check-input" id="{$id}_{:md5($_key)}" name="{$name}" value="{$_key}">
             {/if}
-            <label class="form-check-label" for="{$id}_{:md5($_vo)}">{$_key}</label>
+            <label class="form-check-label" for="{$id}_{:md5($_key)}">{$_vo}</label>
         </div>
         {/if}
         {/foreach}
