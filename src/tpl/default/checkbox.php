@@ -1,14 +1,14 @@
 <div class="mt-2">
     <label class="form-label">{$label}</label>
     <div>
-        {foreach $items??[] as $_value=>$_label}
+        {foreach $items??[] as $_vo}
         <div class="form-check {if isset($inline) && $inline} form-check-inline{/if}">
-            {if in_array($_value, (array)$value)}
-            <input type="checkbox" class="form-check-input" id="{$id}_{:md5($_value)}" name="{$name}[]" value="{$_value}" checked>
+            {if in_array($_vo['value'], (array)$value)}
+            <input type="checkbox" class="form-check-input" id="{$id}_{:md5($_vo['value'])}" name="{$name}[]" value="{$_vo['value']}" checked>
             {else}
-            <input type="checkbox" class="form-check-input" id="{$id}_{:md5($_value)}" name="{$name}[]" value="{$_value}">
+            <input type="checkbox" class="form-check-input" id="{$id}_{:md5($_vo['value'])}" name="{$name}[]" value="{$_vo['value']}">
             {/if}
-            <label class="form-check-label" for="{$id}_{:md5($_value)}">{$_label}</label>
+            <label class="form-check-label" for="{$id}_{:md5($_vo['value'])}">{$_vo['label']??$_vo['value']}</label>
         </div>
         {/foreach}
     </div>

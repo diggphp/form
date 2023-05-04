@@ -1,23 +1,23 @@
 <div class="mt-2">
     <label for="{$id}_field" class="form-label">{$label}</label>
     <select name="{$name}" class="form-select" id="{$id}_field" <?php if (isset($required) && $required) { ?>required<?php } ?> <?php if (isset($disabled) && $disabled) { ?>disabled<?php } ?>>
-        {foreach $items??[] as $_key=>$_val}
-        {if is_array($_val)}
-        <optgroup label="{$_key}">
-            {foreach $_val as $_value=>$_title}
-            {if in_array($_value, (array)$value)}
-            <option value="{$_value}" selected>{$_title}</option>
+        {foreach $items??[] as $_group=>$_vo}
+        {if isset($_vo['value'])}
+        {if in_array($_vo['value'], (array)$value)}
+        <option value="{$_vo['value']}" selected>{$_vo['label']??$_vo['value']}</option>
+        {else}
+        <option value="{$_vo['value']}">{$_vo['label']??$_vo['value']}</option>
+        {/if}
+        {else}
+        <optgroup label="{$_group}">
+            {foreach $_vo as $_subvo}
+            {if in_array($_subvo['value'], (array)$value)}
+            <option value="{$_subvo['value']}" selected>{$_subvo['label']??$_subvo['value']}</option>
             {else}
-            <option value="{$_value}">{$_title}</option>
+            <option value="{$_subvo['value']}">{$_subvo['label']??$_subvo['value']}</option>
             {/if}
             {/foreach}
         </optgroup>
-        {else}
-        {if in_array($_key, (array)$value)}
-        <option value="{$_key}" selected>{$_val}</option>
-        {else}
-        <option value="{$_key}">{$_val}</option>
-        {/if}
         {/if}
         {/foreach}
     </select>
