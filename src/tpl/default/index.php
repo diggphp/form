@@ -17,23 +17,20 @@
 </head>
 
 <body>
-    <form action="{$action?:''}" method="{$method?:'POST'}" enctype="{$options['enctype']??'application/x-www-form-urlencoded'}" id="form">
-        <div class="mb-2 sticky-top bg-light border-bottom">
-            <div class="container">
-                <div class="py-2 fs-3 fw-bold">{$title?:'表单'}</div>
+    <div class="container">
+        <form action="{$action?:''}" method="{$method?:'POST'}" enctype="{$options['enctype']??'application/x-www-form-urlencoded'}" id="form">
+            <div class="my-4">
+                <div class="h1">{$title?:'表单'}</div>
             </div>
-        </div>
-        <div class="container" style="padding-bottom:100px;">
-            {echo $body}
-        </div>
-        <div class="bg-light bg-gradient fixed-bottom border-top">
-            <div class="container">
-                <div class="py-3">
-                    <button type="submit" class="btn btn-primary btn-lg px-4">{$options['submit'] ?? '提交'}</button>
-                </div>
+            <div class="my-3">
+                {echo $body}
             </div>
-        </div>
-    </form>
+            <div class="py-3">
+                <button type="submit" class="btn btn-primary btn px-4">{$options['submit'] ?? '提交'}</button>
+            </div>
+        </form>
+    </div>
+
     <script>
         $(function() {
             $("#form").bind('submit', function(event) {
